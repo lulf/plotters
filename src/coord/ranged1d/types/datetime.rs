@@ -31,12 +31,14 @@ pub trait TimeValue: Eq {
         let value_span = value.subtract(begin);
 
         // First, lets try the nanoseconds precision
+        /*
         if let Some(total_ns) = total_span.num_nanoseconds() {
             if let Some(value_ns) = value_span.num_nanoseconds() {
                 return (f64::from(limit.1 - limit.0) * value_ns as f64 / total_ns as f64) as i32
                     + limit.0;
             }
         }
+        */
 
         // Yes, converting them to floating point may lose precision, but this is Ok.
         // If it overflows, it means we have a time span nearly 300 years, we are safe to ignore the
